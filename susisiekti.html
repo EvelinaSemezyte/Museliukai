@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    function validate() {
+      var vardas = document.getElementById("vardas");
+      var pastas = document.getElementById("pastas");
+      var zinute = document.getElementById("zinute");
+
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,3})+$/;
+      var filterVardas = /^([a-zA-Z])+$/;
+
+      if (vardas.value == "") {
+        alert("Įveskite vardą!")
+      } else if (pastas.value == "") {
+        alert("Įveskite el. paštą!")
+      } else if (!filter.test(pastas.value)) {
+        alert("Neteisingai ivestas el pastas")
+      } else if (zinute.value == "") {
+        alert("Neivedete zinutes")
+      } else if(!filterVardas.test(vardas.value)){
+        alert("Neteisingai ivestas vardas")
+      }else {
+        alert("Pranesimas issiustas")
+      }
+    }
+    function myFunction() {
+
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+    }
+  </script>
+  <meta charset="utf-8">
+  <title>Tinklarastis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="titulinis.css">
+</head>
+
+<body>
+
+  <div id="container">
+    <header id="header">
+      <img id="logo" src="./nuotraukos/logo.png" alt="tinklarastis" </img> <h1>Museliukai</h1>
+      <hr>
+    </header>
+    <div class="menu">
+      <ul>
+        <li><a href="index.html"> Pagrindinis </a> </li>
+        <li><a href="tinklarastis.html"> Tinklaraštis </a> </li>
+        <li><a href="galerija.html"> Galerija </a> </li>
+        <li><a href="upes.html"> Upės </a> </li>
+        <li><a id="active" href="susisiekti.html"> Susisiekite </a> </li>
+        <li><button onclick="myFunction()">Šviesus / tamsus režimas</button></li>
+      </ul>
+      <br>
+    </div>
+
+
+    <section id="left-column">
+
+      <p>Savo pastebėjimus, pasiūlimys ar klausymus galite pateikti šioje skiltyje. </p>
+      <div class="container">
+
+
+        <form id="form" action="" method="GET">
+          <div>
+            <label for="vardas">Vardas</label>
+            <input type="text" id="vardas" name="vardas" maxlength="10" placeholder="Jūsų vardas...">
+          </div>
+          <div>
+            <label for="pastas">El. paštas</label>
+            <input type="text" id="pastas" name="pastas" placeholder="Jūsų elektroninis paštas..">
+          </div>
+          <div>
+            <label for="miestas">Miestas</label>
+            <select id="miestas" name="miestas">
+              <option value="vilnius">Vilnius</option>
+              <option value="kaunas">Kaunas</option>
+              <option value="klaipeda">Klaipėda</option>
+              <option value="siauliai">Šiauliai</option>
+              <option value="panevezys">Panevėžys</option>
+              <option value="kita">Kita</option>
+            </select>
+            <div>
+              <label for="zinute">Žinutė</label>
+              <textarea id="zinute" name="zinute" placeholder="Rašykite žinute čia..." style="height:200px"></textarea>
+            </div>
+          </div>
+
+          <button onclick="validate()" type="submit">Pateikti</button>
+        </form>
+
+      </div>
+
+    </section>
+
+    <aside id="right-column">
+      <h3><b>Naudinga informacija</b></h3>
+      <p>Žvejyba upėse: <br> <br> <i>Vasario 1d. - Spalio 15d.</i> </p>
+      <ul>
+        <li>Lašišų</li>
+        <li>Ešerių</li>
+        <li>Lidekų</li>
+        <li>Upėtakių</li>
+      </ul>
+      <p>Žvejyba jūroje: <br> <br><i>Spalio 15d. - vasario 30d.</i> </p>
+      <ul>
+        <li>Lašišų</li>
+        <li>Strimelių</li>
+        <li>Lydekų</li>
+        <li>Raudžių</li>
+      </ul>
+      <p>Draudžiama gaudyti:</p>
+      <ul>
+        <li>Skersnukius</li>
+        <li>Vijūnus</li>
+        <li>Jūrines nėges</li>
+        <li>Aštriašnipius eršketus</li>
+        <li>Sterles</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <address>2019 &copy; E.Semezyte</address>
+    </footer>
+  </div>
+</body>
+
+</html>
